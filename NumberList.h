@@ -9,16 +9,21 @@ private:
     std::vector<int> data;
 
 public:
+
     NumberList();
-    NumberList(const std::vector<int>& d);
+    NumberList(const std::vector<int>& values);
     ~NumberList();
+
 
     int sum() const;
 
-    NumberList& operator+=(int value);
 
-    bool operator>(const NumberList& other) const;
+    const std::vector<int>& getData() const;
 
+    bool operator>(const NumberList& other) const; 
+    NumberList& operator+=(int value);   
+
+    // Вивід списку
     void print() const;
 };
 
