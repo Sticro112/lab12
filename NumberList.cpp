@@ -1,8 +1,10 @@
 #include "NumberList.h"
 
+
 NumberList::NumberList() {}
 
-NumberList::NumberList(const std::vector<int>& d) : data(d) {}
+NumberList::NumberList(const std::vector<int>& values)
+    : data(values) {}
 
 NumberList::~NumberList() {}
 
@@ -13,19 +15,22 @@ int NumberList::sum() const {
     return s;
 }
 
-NumberList& NumberList::operator+=(int value) {
-    data.push_back(value);
-    return *this;
+const std::vector<int>& NumberList::getData() const {
+    return data;
 }
 
 bool NumberList::operator>(const NumberList& other) const {
     return this->sum() > other.sum();
 }
 
+NumberList& NumberList::operator+=(int value) {
+    data.push_back(value);
+    return *this;
+}
 
 void NumberList::print() const {
     std::cout << "[ ";
     for (int x : data)
         std::cout << x << " ";
-    std::cout << "]  sum = " << sum() << std::endl;
+    std::cout << "] sum = " << sum() << std::endl;
 }
